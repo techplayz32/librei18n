@@ -1,6 +1,6 @@
 # librei18n
 
-> [WARNING]
+> [!WARNING]
 > This is still a work-in-progress library and CLI!
 
 A simple and small Go library and CLI tool for managing and validating i18n message files (YAML, TOML, JSON) for Go projects.
