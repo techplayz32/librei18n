@@ -8,46 +8,23 @@
 
 version: 2
 
-before:
-  hooks:
-    - go mod tidy
+project_name: librei18n
 
-builds:
-  - env:
-      - CGO_ENABLED=0
-    goos:
-      - linux
-      - windows
-      - darwin
+builds: [] # No builds for a library
 
-archives:
-  - formats: [tar.gz]
-    # this name template makes the OS and Arch compatible with the results of `uname`.
-    name_template: >-
-      {{ .ProjectName }}_
-      {{- title .Os }}_
-      {{- if eq .Arch "amd64" }}x86_64
-      {{- else if eq .Arch "386" }}i386
-      {{- else }}{{ .Arch }}{{ end }}
-      {{- if .Arm }}v{{ .Arm }}{{ end }}
-    # use zip for windows archives
-    format_overrides:
-      - goos: windows
-        formats: [zip]
+archives: [] # No archives for a library
+
+release:
+  github:
+    owner: techplayz32 # <-- change to your GitHub username
+    name: librei18n
 
 changelog:
   sort: asc
   filters:
     exclude:
-      - "^docs:"
-      - "^test:"
-
-release:
-  footer: >-
-
-    ---
-
-    Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+      - '^docs:'
+      - '^test:'
 
 checksum:
   name_template: "checksums.txt"
