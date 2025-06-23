@@ -7,24 +7,22 @@
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
 
 version: 2
-
-project_name: librei18n
-
-builds: [] # No builds for a library
-
-archives: [] # No archives for a library
-
-release:
-  github:
-    owner: techplayz32 # <-- change to your GitHub username
-    name: librei18n
-
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^docs:'
-      - '^test:'
-
+builds:
+  - binary: librei18n
+    main: ./cmd/librei18n/
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+    env:
+      - CGO_ENABLED=0
+archives:
+  - format: binary
+    name_template: "{{ .Binary }}-{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+before:
+  hooks:
+    - go mod tidy
 checksum:
   name_template: "checksums.txt"
