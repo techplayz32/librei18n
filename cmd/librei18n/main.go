@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"librei18n/i18n"
+	"github.com/techplayz32/librei18n/i18n"
 )
 
 func main() {

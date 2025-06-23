@@ -1,4 +1,4 @@
-module librei18n
+module github.com/techplayz32/librei18n
 
 go 1.24.3
 
